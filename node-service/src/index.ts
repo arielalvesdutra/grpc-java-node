@@ -3,8 +3,7 @@ import JavaWebservice from './httpclient/java-webservice'
 
 const port = 3000
 const app = express()
-
-const javaService: JavaWebservice = new JavaWebservice()
+const javaWebservice: JavaWebservice = new JavaWebservice()
 
 app.get('/', (req, resp) => {
 
@@ -17,8 +16,8 @@ app.get('/', (req, resp) => {
     })
 })
 
-app.get('/java_webservice/', async (req, resp) => {
-    const result = await javaService.callHome()
+app.get('/java_webservice/', async (_, resp) => {
+    const result = await javaWebservice.callHome()
     console.log(`java webservice response: ${result.data}`)
 
     return resp.send({

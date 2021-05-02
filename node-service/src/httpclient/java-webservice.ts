@@ -2,14 +2,11 @@ import axios, { AxiosResponse } from 'axios'
 
 axios.defaults.timeout = 10000
 
-const backendUrl = process.env.REACT_APP_BACKEND_URL
-    ? process.env.REACT_APP_BACKEND_URL
+const baseURL = process.env.JAVA_WEBSERVICE_URL
+    ? process.env.JAVA_WEBSERVICE_URL
     : 'http://localhost:3001'
 
-const instance = axios.create({
-  baseURL: backendUrl
-})
-
+const instance = axios.create({baseURL})
 
 interface HomeResponse {
   data: {
@@ -21,8 +18,7 @@ interface HomeResponse {
 class JavaWebservice {
 
   async callHome(): Promise<AxiosResponse<HomeResponse>> {
-    const response = await instance.get<HomeResponse>('/')
-    return response
+    return await instance.get<HomeResponse>('/')
   }
 }
 

@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package dev.arielalvesdutra.grpcjava.grpc;
+
+option java_multiple_files = true;
+option java_package = "dev.arielalvesdutra.grpcjava.grpc";
+option java_outer_classname = "JavaGrpcService";
+
+service JavaGrpcService {
+  rpc greeting(JavaGreetingRequest) returns (JavaGreetingResponse) {}
+}
+
+message JavaGreetingRequest {
+  string message = 1;
+}
+
+message JavaGreetingResponse {
+  string message = 1;
+}
