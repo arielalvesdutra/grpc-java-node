@@ -1,0 +1,14 @@
+# node modules
+node_modules
+
+# project environment variables
+.env
+
+# project build
+dist
+
+# integration tests
+test.sqlite
+
+# test coverage
+coverage/
