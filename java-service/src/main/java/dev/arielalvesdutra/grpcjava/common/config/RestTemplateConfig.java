@@ -1,4 +1,4 @@
-package dev.arielalvesdutra.grpcjava.nodewebservice.config;
+package dev.arielalvesdutra.grpcjava.common.config;
 
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.context.annotation.Bean;
