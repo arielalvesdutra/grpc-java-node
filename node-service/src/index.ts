@@ -1,6 +1,9 @@
 import express from 'express'
 import JavaWebservice from './httpclient/java-webservice'
 
+import * as grpc from '@grpc/grpc-js';
+import * as protoLoader from '@grpc/proto-loader';
+
 const port = 3000
 const app = express()
 const javaWebservice: JavaWebservice = new JavaWebservice()
