@@ -1,10 +1,12 @@
 import express from 'express'
 import JavaWebservice from '../httpclient/java-webservice'
+import JavaGrpcClient from '../grpcclient/java-grcp-client'
 
 
 const DEFAULT_SERVER_PORT = 3000
 
 const javaWebservice: JavaWebservice = new JavaWebservice()
+const javaGrpcClient: JavaGrpcClient = new JavaGrpcClient()
 const app = express()
 
 app.get('/', (req, resp) => {
@@ -25,6 +27,19 @@ app.get('/java_webservice/', async (_, resp) => {
     return resp.send({
         data: result.data.data,
         node_marker: 'node mark!'
+    })
+})
+
+app.get('/java_grpcserver/', async (_, resp) => {
+    const result: any = await javaGrpcClient.callJavaGrpcGreeting()
+    console.log(`java grpc server response:: ${result.getMessage()}`)
+    return resp.send({
+        data: {
+            message: result.getMessage(),
+            date: new Date(),
+            node_marker: 'node mark! node gPRC client executed with success'
+        }
+
     })
 })
 
